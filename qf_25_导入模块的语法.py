@@ -28,3 +28,20 @@ print(dt.time)
 
 # --5-------------------------
 dp(['hello', 'good', [1, 2, 3], 'hi'])
+
+# ------------------------------------------------
+# 使用from <module_name> import *导入这个模块里"所有"的变量和函数
+# 本质是读取模块里的__all__ 属性, 看这个属性里定义了哪些变量和函数
+# 如果模块里没用定义__all__ 才会导入所有不以 _ 开头的变量和函数
+
+from module.demo import *
+
+# 使用from demo import * 写法 不需要写模块名
+print(m)  # yes
+test()
+# foo() # name 'foo' is not defined
+
+# 不在__all__中也可以调用
+import module.demo as demo
+
+print(demo.n)
